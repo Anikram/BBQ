@@ -1,9 +1,18 @@
 class User < ActiveRecord::Base
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   has_many :events
 
   validates :name, presence: true, length: {maximum: 35}
-  validates :email, presence: true, length: {maximum: 255}
-  validates :email, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
+
+  before_validation :set_name, pn: :create
+
+  private
+
+  def set_name
+    self.name = "Товарисч #{rand(999)}" if self.name.blank?
+  end
 end

@@ -12,6 +12,11 @@ Rails Winter 2018 - урок 52
 * Таблицы базы данных: events, users
 
 # Запуск и работа приложения
+## Bundler
+Для корректной работы приложения необходимо установить gem bundler и 
+выполнить комманду ```$ bundle update --without production``` для установки 
+необходимого набора гемов для разработки
+
 ## Консоль rails
 Для корректной работы приложения через консоль необходимо использовать 
 корректное окружение проектов и набор gem-ов при помощи префикса - `bundle exec`.
@@ -38,7 +43,7 @@ $ budle exec rails server
 # Деплой
 В будущих коммитах проект будет задеплоен на сервис [heroku.com](heroku.com)
 
-### Разработал [Anikram](github.com:Anikram), 2018 год
+### Разработал [Anikram](https://github.com:Anikram), 2018 год
 
-### Учебный проект [Goodprogrammer.ru](Goodprogrammer.ru)
+### Учебный проект [Goodprogrammer.ru](https://Goodprogrammer.ru)
 
