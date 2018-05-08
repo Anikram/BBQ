@@ -145,7 +145,7 @@ DEPENDENCIES
   byebug
   devise
   jquery-rails
-  pg
+  pg (~> 1.0)
   rails (= 4.2.10)
   rails_12factor
   sqlite3
