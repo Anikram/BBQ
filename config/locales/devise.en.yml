@@ -3,33 +3,33 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: "Ваш электронный адрес был успешно подтвержден."
+      send_instructions: "Вы получите письмо с инструкциями по подтверждению адреса почты через несколько минут."
+      send_paranoid_instructions: "Если ваша почта есть в нашей базе, вы получите письмо с инструкциями по подтверждению почтового адреса."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: "Вы уже вошли."
+      inactive: "Ваш аккаунт еще не активен."
+      invalid: "Неверный %{authentication_keys} или пароль."
+      locked: "Ваш аккаунт заблокирован."
+      last_attempt: "У вас осталась одна попытка до блокировки аккаунта."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      timeout: "Ваша сессия завершена. Пожалуйста войдите для продолжения."
+      unauthenticated: "Вам нужно войти или зарегестрироватся для продолжения."
+      unconfirmed: "Вам нужно подтвердить адрес электронной почты перед продолжением."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Инструкции по подтверждению"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Инструкции по сбросу пароля"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Инструкции по разблокировке"
       email_changed:
-        subject: "Email Changed"
+        subject: "Адрес электронной почты изменен"
       password_change:
-        subject: "Password Changed"
+        subject: "Пароль изменен"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: "Не можем вас аутентифицировать %{kind} потому что \"%{reason}\"."
+      success: "Аутентификация пройдена %{kind} на аккаунте."
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
@@ -45,9 +45,9 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Вы успешно вошли."
+      signed_out: "Вы вышли. До скорой встречи."
+      already_signed_out: "Вы уже вышли."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

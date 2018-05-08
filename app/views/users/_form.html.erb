@@ -1,17 +1,28 @@
 <%= form_for @user, html: {multipart: true} do |f| %>
 
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
+  <div class="form-horizontal" >
+    <div class="controls">
+      <%= f.label 'Имя пользователя' %>
+    </div>
+    <div class="input-group">
+      <%= f.text_field :name, class: 'form-control' %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :name%>
-    <%= f.text_field :name, class: 'form-control'%>
-  </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control'%>
-  </div>
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %> или <%= link_to 'вернуться', :back %>
-  </div>
+    <div class="controls">
+      <%= f.label 'Адрес электронной почты' %>
+    </div>
+    <div class="input-group">
+      <%= f.text_field :email, class: 'form-control' %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+    </div>
 
+    <div class="form">
+      <div class="btn-group">
+          <%= f.submit 'Сохранить', class: 'btn btn-primary buffer-both' %>
+          <%= link_to 'Вернуться', :back, class: 'btn btn-warning buffer-both' %>
+      </div>
+    </div>
+  </div>
 <% end %>
