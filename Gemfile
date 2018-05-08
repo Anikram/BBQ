@@ -12,6 +12,9 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 
+group :production do
+  gem 'pg'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -19,8 +22,4 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg', '~> 1.0'
-  gem 'rails_12factor'
-end
 
