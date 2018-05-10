@@ -16,6 +16,8 @@ gem 'devise-i18n'
 
 gem 'russian'
 
+gem 'rails-i18n'
+
 group :production do
   gem 'pg', '~> 0.15'
 end

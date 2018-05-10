@@ -24,3 +24,9 @@ ru:
   app:
     name: 'ШАШЛЫЧКИ'
     company: 'Anikram'
+    form:
+      attributes:
+        error:
+          one: "ошибка"
+          few: "ошибки"
+          many: "ошибок"

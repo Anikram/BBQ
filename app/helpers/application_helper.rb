@@ -26,5 +26,4 @@ module ApplicationHelper
       return krokodilov
     end
   end
-
 end
