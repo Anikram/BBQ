@@ -3,7 +3,7 @@
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
   <div class="form-horizontal" >
     <div class="controls">
-      <%= f.label 'Имя пользователя' %>
+      <%= f.label :name %>
     </div>
     <div class="input-group">
       <%= f.text_field :name, class: 'form-control' %>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="controls">
-      <%= f.label 'Адрес электронной почты' %>
+      <%= f.label :email %>
     </div>
     <div class="input-group">
       <%= f.text_field :email, class: 'form-control' %>

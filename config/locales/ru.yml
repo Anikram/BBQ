@@ -1,0 +1,26 @@
+ru:
+  activerecord:
+    models:
+      user: 'Пользователь'
+      event: 'Событие'
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_conformation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+  controllers:
+    events:
+      created: 'Событие было успешно создано'
+      updated: 'Событие было успешно обновлено'
+      destroyed: 'Событие было успешно удалено'
+    users:
+      updated: 'Пользователь успешно обновлен'
+  app:
+    name: 'ШАШЛЫЧКИ'
+    company: 'Anikram'

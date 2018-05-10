@@ -10,7 +10,7 @@
       <%= render partial: 'partials/form_errors', locals: {model: resource}, class: "input-group col-xs-4" %>
     </div>
     <div class="controls">
-      <%= f.label 'Адрес электронной почты' %>
+      <%= f.label :email %>
     </div>
     <div class="input-group col-xs-4">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="controls">
-      <%= f.label 'Пароль' %>
+      <%= f.label :password %>
       <% if @minimum_password_length %>
         <span class="event-info">минимум <%= @minimum_password_length %> символов</span>
       <% end %>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="controls">
-      <%= f.label 'Повторите пароль' %>
+      <%= f.label :password_confirmation %>
     </div>
     <div class="input-group col-xs-4">
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>

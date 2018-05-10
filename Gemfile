@@ -12,6 +12,10 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 
+gem 'devise-i18n'
+
+gem 'russian'
+
 group :production do
   gem 'pg', '~> 0.15'
 end
