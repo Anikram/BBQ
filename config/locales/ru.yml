@@ -21,6 +21,7 @@ ru:
       destroyed: 'Событие было успешно удалено'
     users:
       updated: 'Пользователь успешно обновлен'
+      destroyed: 'Вы удалили свой аккаунт'
   app:
     name: 'ШАШЛЫЧКИ'
     company: 'Anikram'
@@ -30,3 +31,16 @@ ru:
           one: "ошибка"
           few: "ошибки"
           many: "ошибок"
+    contacts:
+      support-email: "support@bbq.com"
+      feedback-email: "feedback@bbq.com"
+  views:
+    user:
+      edit:
+        delete: 'Удалить профиль'
+        alert: 'Вы уверены что хотите удалить профиль?'
+
+  errors:
+    messages:
+      not_saved: 'Не удалось изменить пароль'
+

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private\
+  private
 
   def set_current_user
     @user = current_user

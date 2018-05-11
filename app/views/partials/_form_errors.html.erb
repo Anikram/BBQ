@@ -1,9 +1,10 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger">
+  <div class="alert fade in alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
     <div class="lead buffer-bottom">
-     <!-- В вашей форме %= errors.count %> %= decline_it(errors.count,'ошибка', 'ошибки', 'ошибок')%>-->
+      <!-- В вашей форме %= errors.count %> %= decline_it(errors.count,'ошибка', 'ошибки', 'ошибок')%>-->
       В вашей форме <%= errors.count %> <%= t(('app.form.attributes.error'), count: errors.count) %>
     </div>
 

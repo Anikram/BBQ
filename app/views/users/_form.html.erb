@@ -1,7 +1,8 @@
 <%= form_for @user, html: {multipart: true} do |f| %>
-
-  <%= render partial: 'partials/form_errors', locals: {model: @user} %>
-  <div class="form-horizontal" >
+  <div class="input-group col-xs-4">
+    <%= render partial: 'partials/form_errors', locals: {model: @user}, class: "input-group col-xs-4" %>
+  </div>
+  <div class="form-horizontal">
     <div class="controls">
       <%= f.label :name %>
     </div>
@@ -20,8 +21,8 @@
 
     <div class="form">
       <div class="btn-group">
-          <%= f.submit 'Сохранить', class: 'btn btn-primary buffer-both' %>
-          <%= link_to 'Вернуться', :back, class: 'btn btn-warning buffer-both' %>
+        <%= f.submit 'Сохранить', class: 'btn btn-primary buffer-both' %>
+        <%= link_to 'Вернуться', :back, class: 'btn btn-warning buffer-both' %>
       </div>
     </div>
   </div>
