@@ -2,9 +2,9 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
-  <div class="input-group col-xs-4">
-    <%= render partial: 'partials/form_errors', locals: {model: resource}, class: "input-group col-xs-4"%>
-  </div>
+    <div class="input-group col-xs-4">
+      <%= render partial: 'partials/form_errors', locals: {model: resource}, class: "input-group col-xs-4" %>
+    </div>
 
     <div class="input-group col-xs-4">
       <div class="form-horizontal">
@@ -35,7 +35,11 @@
         </div>
       </div>
     </div>
-  </div>
+
 <% end %>
+
+  <%= link_to 'Восстановить пароль', new_password_path(resource_name) %>
+
+</div>
 
 <!-- %= render "devise/shared/links" %> -->
