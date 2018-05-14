@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :events
+  has_many :comments
+  has_many :subscriptions
 
   validates :name, presence: true, length: {maximum: 35}
 

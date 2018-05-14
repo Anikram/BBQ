@@ -22,6 +22,14 @@ ru:
     users:
       updated: 'Пользователь успешно обновлен'
       destroyed: 'Вы удалили свой аккаунт'
+    comments:
+      created: 'Комментарий создан'
+      destroyed: 'Комментарий удалён'
+      error: 'Ошибка при сохранении коммента'
+    subscription:
+      created: 'Вы подписались на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
   app:
     name: 'ШАШЛЫЧКИ'
     company: 'Anikram'
@@ -44,3 +52,10 @@ ru:
     messages:
       not_saved: 'Не удалось изменить пароль'
 
+  comments:
+    comment:
+      destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить подписку?'

@@ -30,4 +30,8 @@ module ApplicationHelper
   def is_current_user?(user)
     user == current_user
   end
+
+  def fa_icon(icon_class)
+    content_tag 'span', '', class: "fa fa-#{icon_class}"
+  end
 end
