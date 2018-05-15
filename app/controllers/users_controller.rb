@@ -4,7 +4,11 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+    rescue
+      redirect_to root_path, alert: t('controllers.users.no_user_error')
+    end
   end
 
   # GET /users/1/edit

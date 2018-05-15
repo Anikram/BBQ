@@ -34,4 +34,12 @@ module ApplicationHelper
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
+
+  def subscribed?
+    true if @event.subscriptions.map(&:user_id).include?(current_user.id)
+  end
+
+  def is_owner?
+    true if @event.user_id == current_user.id
+  end
 end
