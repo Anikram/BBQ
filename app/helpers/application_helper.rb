@@ -36,10 +36,12 @@ module ApplicationHelper
   end
 
   def subscribed?
-    true if @event.subscriptions.map(&:user_id).include?(current_user.id)
+    return if current_user.nil?
+    true if @event.subscriptions.map(&:user_id).select{|x|!x.nil?}.include?(current_user.id)
   end
 
   def is_owner?
+    return if current_user.nil?
     true if @event.user_id == current_user.id
   end
 end

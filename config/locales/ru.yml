@@ -47,6 +47,11 @@ ru:
       support-email: "support@bbq.com"
       feedback-email: "feedback@bbq.com"
   views:
+    forms:
+      user_name: 'Имя пользователя'
+      user_email: 'Адрес электронной почты'
+      body: 'Текст комментария'
+
     user:
       edit:
         delete: 'Удалить профиль'
