@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   private
 
   def set_name
-    self.name = "Товарисч #{rand(999)}" if self.name.blank?
+    self.name = "Товарищ №#{rand(999)}" if self.name.blank?
   end
 
   def link_subscriptions

@@ -6,11 +6,17 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
-    @new_subscription.user = current_user
-    if @new_subscription.save
-      redirect_to @event, notice: t('controllers.subscription.created')
+
+    if email_is_valid?
+      @new_subscription.user = current_user
+
+      if @new_subscription.save
+        redirect_to @event, notice: t('controllers.subscription.created')
+      else
+        render 'events/show', alert: t('controllers.subscription.errors.general')
+      end
     else
-      render 'events/show', alert: t('controllers.subscription.errors.general')
+      redirect_to @event, alert: t('controllers.subscription.errors.registered_email')
     end
   end
 
@@ -38,6 +44,10 @@ class SubscriptionsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def subscription_params
       params.fetch(:subscription, {}).permit(:user_email, :user_name)
+    end
+
+    def email_is_valid?
+      true unless User.all.map(&:email).include?(@new_subscription.user_email)
     end
 
     #def user_is_owner?
