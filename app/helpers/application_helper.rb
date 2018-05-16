@@ -1,7 +1,38 @@
 module ApplicationHelper
   def user_avatar(user)
-    #todo userreal avatars
-    asset_path('burger.png')
+     if user.avatar?
+       user.avatar.url
+     else
+       asset_path('burger.png')
+     end
+  end
+
+  def user_avatar_thumb(user)
+     if user.avatar.file.present?
+       user.avatar.thumb.url
+     else
+       asset_path('burger.png')
+     end
+     end
+
+  def event_photo(event)
+    photos = event.photos.persisted
+
+     if photos.any?
+       photos.smple.photo.url
+     else
+       asset_path('event.png')
+     end
+  end
+
+  def event_thumb(event)
+    photos = event.photos.persisted
+
+    if photos.any?
+      photos.smple.photo.thumb.url
+    else
+      asset_path('event_thumb.png')
+    end
   end
 
   # Anikram 2018 - Method declines word in russian
@@ -44,4 +75,6 @@ module ApplicationHelper
     return if current_user.nil?
     true if @event.user_id == current_user.id
   end
+
+
 end

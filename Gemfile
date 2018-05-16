@@ -18,6 +18,10 @@ gem 'russian'
 
 gem 'rails-i18n'
 
+gem 'carrierwave'
+
+gem 'rmagick'
+
 group :production do
   gem 'pg', '~> 0.15'
 end

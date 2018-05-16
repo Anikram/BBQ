@@ -19,6 +19,12 @@
       <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
     </div>
 
+    <div class="controls">
+      <%= f.label :avatar %>
+      <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+      <%= f.file_field :avatar%>
+    </div>
+
     <div class="form">
       <div class="btn-group">
         <%= f.submit 'Сохранить', class: 'btn btn-primary buffer-both' %>

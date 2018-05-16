@@ -8,6 +8,7 @@ ru:
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
+        avatar: 'Аватар'
         password_conformation: 'Подтверждение пароля'
       event:
         title: 'Название'
@@ -34,6 +35,11 @@ ru:
         general: 'Подписка/отписка не сработала'
         owner: 'Вы не можете подписаться на свое событие'
         registered_email: 'Указанный адрес почты уже используется'
+    photo:
+      created: 'Фото загружено'
+      destroyed: 'Фото удалено'
+      errors:
+        general: 'Ошибка отправки фото'
 
   app:
     name: 'ШАШЛЫЧКИ'
