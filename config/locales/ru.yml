@@ -3,6 +3,9 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      photo: 'Фотография'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
     attributes:
       user:
         email: 'Email'
@@ -15,6 +18,14 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      photo:
+        photo: 'Фотография'
+      comment:
+        user_name: 'Ваше имя'
+        body: 'Комментарий'
+      subscription:
+        user_name: 'Ваше имя'
+        user_email: 'Ваш email'
   controllers:
     events:
       created: 'Событие было успешно создано'
@@ -40,7 +51,6 @@ ru:
       destroyed: 'Фото удалено'
       errors:
         general: 'Ошибка отправки фото'
-
   app:
     name: 'ШАШЛЫЧКИ'
     company: 'Anikram'
@@ -58,20 +68,16 @@ ru:
       user_name: 'Имя пользователя'
       user_email: 'Адрес электронной почты'
       body: 'Текст комментария'
-
     user:
       edit:
         delete: 'Удалить профиль'
         alert: 'Вы уверены что хотите удалить профиль?'
-
   errors:
     messages:
       not_saved: 'Не удалось изменить пароль'
-
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
-
   subscriptions:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить подписку?'

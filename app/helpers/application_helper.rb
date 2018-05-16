@@ -19,7 +19,7 @@ module ApplicationHelper
     photos = event.photos.persisted
 
      if photos.any?
-       photos.smple.photo.url
+       photos.sample.photo.url
      else
        asset_path('event.png')
      end
@@ -29,7 +29,7 @@ module ApplicationHelper
     photos = event.photos.persisted
 
     if photos.any?
-      photos.smple.photo.thumb.url
+      photos.sample.photo.thumb.url
     else
       asset_path('event_thumb.png')
     end
