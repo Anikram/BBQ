@@ -75,6 +75,7 @@ ru:
   errors:
     messages:
       not_saved: 'Не удалось изменить пароль'
+      extension_whitelist_error: 'не поддерживаемого формата.'
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
