@@ -1,0 +1,10 @@
+<%= t('mailers.events.new_subscription') %>
+---
+
+Имя: <%= @name %>
+Email: <%= @email %>
+_______________________
+
+Событие: <%= @event.title %>
+Состоится: <%= l @event.datetime %>
+Организатор: <%= @event.user.name %>
