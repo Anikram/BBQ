@@ -27,7 +27,7 @@ gem 'fog-aws'
 gem 'rails_12factor'
 
 group :production do
-  gem 'pg', '~> 0.15'
+  gem 'pg', '~> 0.20'
 end
 
 group :development, :test do

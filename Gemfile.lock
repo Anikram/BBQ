@@ -183,7 +183,7 @@ DEPENDENCIES
   devise-i18n
   fog-aws
   jquery-rails
-  pg (~> 0.15)
+  pg (~> 0.20)
   rails (= 4.2.10)
   rails-i18n
   rails_12factor
