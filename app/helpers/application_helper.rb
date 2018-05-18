@@ -21,7 +21,7 @@ module ApplicationHelper
      if photos.any?
        photos.sample.photo.url
      else
-       asset_path('images/bbq-pic.png')
+       asset_path('bbq-pic.png')
      end
   end
 
