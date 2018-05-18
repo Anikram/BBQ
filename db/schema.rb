@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20180518100031) do
   end
 
   add_index "subscriptions", ["event_id"], name: "index_subscriptions_on_event_id"
-  add_index "subscriptions", ["user_email", nil], name: "index_subscriptions_on_user_email_and_{:unique=>true}"
+  add_index "subscriptions", ["user_email"], name: "index_subscriptions_on_user_email", unique: true
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
-  add_index "subscriptions", [nil, nil], name: "index_subscriptions_on_user_and_{:unique=>true}"
+  add_index "subscriptions", ["user_name"], name: "index_subscriptions_on_user_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -80,8 +80,7 @@ ActiveRecord::Schema.define(version: 20180518100031) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", [nil, nil], name: "index_users_on_user_email_and_{:unique=>true}"
-  add_index "users", [nil, nil], name: "index_users_on_user_name_and_{:unique=>true}"
 
 end

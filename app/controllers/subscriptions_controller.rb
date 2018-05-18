@@ -12,9 +12,8 @@ class SubscriptionsController < ApplicationController
       @new_subscription.save!
       #EventMailer.subscription(@event, @new_subscription).deliver_now
       redirect_to @event, notice: t('controllers.subscription.created')
-    rescue ActiveRecord::RecordNotFound => e
-      flash[alert: e]
-      render 'events/show', alert: t('controllers.subscription.errors.general')
+    rescue ActiveRecord::RecordNotUnique
+      redirect_to @event, alert: t('controllers.subscription.errors.registered_email')
     end
 
   end
