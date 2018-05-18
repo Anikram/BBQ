@@ -24,6 +24,8 @@ gem 'rmagick'
 
 gem 'fog-aws'
 
+gem 'rails_12factor'
+
 group :production do
   gem 'pg', '~> 0.15'
 end
