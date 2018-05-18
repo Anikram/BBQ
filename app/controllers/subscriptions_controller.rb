@@ -45,12 +45,4 @@ class SubscriptionsController < ApplicationController
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end
-
-  def email_is_valid?
-    !(User.all.map(&:email).include?(@new_subscription.user_email) && User.all.map(&:email).include?(@event.user.email))
-  end
-
-  #def user_is_owner?
-  #  true if @event.user_id == @new_subscription.user_id
-  #end
 end
