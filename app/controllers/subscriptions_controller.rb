@@ -6,23 +6,22 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
-    if email_is_valid?
-      @new_subscription.user = current_user
+    @new_subscription.user = current_user
 
-      if @new_subscription.save
-        #EventMailer.subscription(@event, @new_subscription).deliver_now
-        redirect_to @event, notice: t('controllers.subscription.created')
-      else
-        render 'events/show', alert: t('controllers.subscription.errors.general')
-      end
-    else
-      redirect_to @event, alert: t('controllers.subscription.errors.registered_email')
+    begin
+      @new_subscription.save!
+      #EventMailer.subscription(@event, @new_subscription).deliver_now
+      redirect_to @event, notice: t('controllers.subscription.created')
+    rescue ActiveRecord::RecordNotFound => e
+      flash[alert: e]
+      render 'events/show', alert: t('controllers.subscription.errors.general')
     end
+
   end
 
   # DELETE /subscriptions/1
   def destroy
-    message = { notice: t('controllers.subscription.destroyed')}
+    message = {notice: t('controllers.subscription.destroyed')}
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
@@ -34,23 +33,25 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-    def set_subscription
-      @subscription = @event.subscriptions.find(params[:id])
-    end
 
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-    # Only allow a trusted parameter "white list" through.
-    def subscription_params
-      params.fetch(:subscription, {}).permit(:user_email, :user_name)
-    end
+  def set_subscription
+    @subscription = @event.subscriptions.find(params[:id])
+  end
 
-    def email_is_valid?
-       !(User.all.map(&:email).include?(@new_subscription.user_email) && User.all.map(&:email).include?(@event.user.email))
-    end
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
-    #def user_is_owner?
-    #  true if @event.user_id == @new_subscription.user_id
-    #end
+  # Only allow a trusted parameter "white list" through.
+  def subscription_params
+    params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
+  def email_is_valid?
+    !(User.all.map(&:email).include?(@new_subscription.user_email) && User.all.map(&:email).include?(@event.user.email))
+  end
+
+  #def user_is_owner?
+  #  true if @event.user_id == @new_subscription.user_id
+  #end
 end
