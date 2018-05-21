@@ -22,6 +22,8 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+gem 'fog'
+
 gem 'fog-aws'
 
 gem 'rails_12factor'
