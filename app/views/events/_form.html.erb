@@ -26,6 +26,11 @@
     </div>
     <%= f.text_area :description, class: 'form-control' %>
 
+    <div class="controls">
+      <%= f.label :pincode %>
+    </div>
+    <%= f.text_field :pincode, class: 'form-control' %>
+
 
     <div class="btn-group">
       <%= f.submit 'Сохранить', class: 'btn btn-primary buffer-both' %>
