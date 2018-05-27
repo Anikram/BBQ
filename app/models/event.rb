@@ -17,6 +17,6 @@ class Event < ActiveRecord::Base
   end
 
   def pincode_valid?(pin2check)
-    pincode == pin2check
+    self.pincode == pin2check
   end
 end
