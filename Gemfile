@@ -23,7 +23,7 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
-gem 'fog', '~> 2.0'
+#gem 'fog', '~> 2.0'
 
 gem 'fog-aws'
 
