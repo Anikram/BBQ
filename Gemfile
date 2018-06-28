@@ -23,6 +23,8 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+gem 'sprockets', '~> 3.7.2'
+
 #gem 'fog', '~> 2.0'
 
 gem 'fog-aws'
