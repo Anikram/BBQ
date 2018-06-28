@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180522123146) do
+ActiveRecord::Schema.define(version: 20180628112739) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20180522123146) do
 
   add_index "subscriptions", ["event_id"], name: "index_subscriptions_on_event_id"
   add_index "subscriptions", ["user_email"], name: "index_subscriptions_on_user_email", unique: true
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", unique: true
   add_index "subscriptions", ["user_name"], name: "index_subscriptions_on_user_name", unique: true
 
   create_table "users", force: :cascade do |t|
