@@ -10,8 +10,6 @@ class SubscriptionsController < ApplicationController
 
     if @new_subscription.user == @new_subscription.event.user
       redirect_to @event, alert: t('controllers.subscription.errors.self_subscription')
-    elsif email_exist?(@new_subscription.user_email)
-      redirect_to @event, alert: t('controllers.subscription.errors.registered_email')
     else
       begin
         @new_subscription.save!
