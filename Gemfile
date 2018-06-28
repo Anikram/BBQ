@@ -38,6 +38,9 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'web-console'
+  gem 'rspec-rails', '~>3.4'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
 end
 
 
