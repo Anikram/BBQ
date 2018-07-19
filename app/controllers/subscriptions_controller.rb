@@ -8,7 +8,9 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @event.user.email == current_user.email
+    #@new_subscription.delete! unless email_exist?(current_user)
+
+    if current_user && @event.user.email == current_user.email
       redirect_to @event, alert: t('controllers.subscription.errors.self_subscription')
       @new_subscription.delete
     else
@@ -16,8 +18,8 @@ class SubscriptionsController < ApplicationController
         @new_subscription.save!
         #EventMailer.subscription(@event, @new_subscription).deliver_now
         redirect_to @event, notice: t('controllers.subscription.created')
-      rescue ActiveRecord::RecordNotUnique
-        redirect_to @event, alert: t('controllers.subscription.errors.registered_email')
+      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+        redirect_to @event, alert: t('controllers.subscription.errors.user_exists')
       end
     end
   end
