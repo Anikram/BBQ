@@ -22,8 +22,4 @@ class Subscription < ActiveRecord::Base
       super
     end
   end
-
-  def check_user_email_availability
-
-  end
 end
