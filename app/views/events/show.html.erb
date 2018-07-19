@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <% if !subscribed? && !is_owner? %>
+      <% if !subscribed? || !owner? %>
         <div class="event-subscription-form">
           <h4>Я пойду:</h4>
           <div>

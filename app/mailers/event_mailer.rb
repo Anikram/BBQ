@@ -18,9 +18,10 @@ class EventMailer < ApplicationMailer
   #
   #   en.event_mailer.comment.subject
   #
-  def comment(event, comment, email)
+  def comment(event, comment, email, photo = "none")
     @comment = comment
     @event = event
+    @photo = photo
 
     mail to: email, subject: "#{t('event_mailer.comment.title')} @ #{event.title}"
   end

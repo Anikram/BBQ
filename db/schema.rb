@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628112739) do
+ActiveRecord::Schema.define(version: 20180719124308) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20180628112739) do
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
 
+  create_table "hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string   "photo"
     t.integer  "event_id"
@@ -49,6 +55,16 @@ ActiveRecord::Schema.define(version: 20180628112739) do
   add_index "photos", ["event_id"], name: "index_photos_on_event_id"
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"
 
+  create_table "question_tags", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "question_tags", ["hashtag_id"], name: "index_question_tags_on_hashtag_id"
+  add_index "question_tags", ["question_id"], name: "index_question_tags_on_question_id"
+
   create_table "subscriptions", force: :cascade do |t|
     t.string   "user_name"
     t.string   "user_email"
@@ -59,9 +75,9 @@ ActiveRecord::Schema.define(version: 20180628112739) do
   end
 
   add_index "subscriptions", ["event_id"], name: "index_subscriptions_on_event_id"
-  add_index "subscriptions", ["user_email"], name: "index_subscriptions_on_user_email", unique: true
-  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", unique: true
-  add_index "subscriptions", ["user_name"], name: "index_subscriptions_on_user_name", unique: true
+  add_index "subscriptions", ["user_email"], name: "index_subscriptions_on_user_email"
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+  add_index "subscriptions", ["user_name"], name: "index_subscriptions_on_user_name"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

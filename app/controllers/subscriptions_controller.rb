@@ -16,9 +16,9 @@ class SubscriptionsController < ApplicationController
     else
       begin
         @new_subscription.save!
-        #EventMailer.subscription(@event, @new_subscription).deliver_now
+        EventMailer.subscription(@event, @new_subscription).deliver_now
         redirect_to @event, notice: t('controllers.subscription.created')
-      rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
+      rescue ActiveRecord::RecordInvalid
         redirect_to @event, alert: t('controllers.subscription.errors.user_exists')
       end
     end
