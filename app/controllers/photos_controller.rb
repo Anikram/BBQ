@@ -7,7 +7,9 @@ class PhotosController < ApplicationController
   def create
     @new_photo = @event.photos.build(photo_params)
     @new_photo.user = current_user
+
     if @new_photo.save
+      notify_subscribers(@event, @new_photo)
       redirect_to @event, notice: t('controllers.photo.created')
     else
       render 'events/show', alert: t('controllers.photo.errors.general')
@@ -42,5 +44,13 @@ class PhotosController < ApplicationController
 
   def email_is_valid?
     true unless User.all.map(&:email).select{ |x| x =~ @new_subscription.user_email}
+  end
+
+  def notify_subscribers(event, photo)
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+
+    all_emails.each do |mail|
+      EventMailer.photo(event, photo, mail).deliver_now
+    end
   end
 end

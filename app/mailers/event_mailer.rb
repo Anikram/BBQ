@@ -18,11 +18,24 @@ class EventMailer < ApplicationMailer
   #
   #   en.event_mailer.comment.subject
   #
-  def comment(event, comment, email, photo = "none")
+  def comment(event, comment, email)
     @comment = comment
     @event = event
-    @photo = photo
 
     mail to: email, subject: "#{t('event_mailer.comment.title')} @ #{event.title}"
+  end
+
+  def photo(event, photo, email)
+    @event = event
+    @photo = photo
+    @email = email
+
+    if Rails.env.development?
+      attachments['image.jpg'] = File.read("public/#{photo.photo.url}")
+    else
+      attachments['image.jpg'] = File.read(photo.photo.url)
+    end
+
+    mail to: email, subject: "#{t('event_mailer.photo.title')} @ #{event.title}"
   end
 end
