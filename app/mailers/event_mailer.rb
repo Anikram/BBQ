@@ -30,6 +30,8 @@ class EventMailer < ApplicationMailer
     @photo = photo
     @email = email
 
+    sleep 10 if Rails.env.production?
+
     attachments['image.jpg'] = File.read("public/#{photo.photo.url}")
 
     mail to: email, subject: "#{t('event_mailer.photo.title')} @ #{event.title}"
