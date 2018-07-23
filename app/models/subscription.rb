@@ -7,6 +7,9 @@ class Subscription < ActiveRecord::Base
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: 'user.present?'
   validates :user, uniqueness: { scope: :event }, if: 'user.present?'
 
+  validates :user_name, uniqueness: { scope: :event }
+  validates :user_email, uniqueness: { scope: :event }
+
   def user_name
     if user.present?
       user.name
