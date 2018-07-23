@@ -34,7 +34,7 @@ class EventMailer < ApplicationMailer
       attachments['image.jpg'] = File.read("public/#{photo.photo.url}")
     else
       sleep 10
-      attachments['image.jpg'] = File.read(photo.photo.path)
+      attachments['image.jpg'] = File.read(photo.photo.url)
     end
 
     mail to: email, subject: "#{t('event_mailer.photo.title')} @ #{event.title}"
