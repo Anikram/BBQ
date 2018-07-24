@@ -46,6 +46,9 @@ class CommentsController < ApplicationController
 
     def notify_subscribers(event, comment)
       all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+      #Уведомить подпищиков о новом комментарии.
+      all_emails = (all_emails - [comment.user.email]).uniq if current_user == comment.user
+      #Не уведомлять автора комментария, если он залогинен.
 
       all_emails.each do |mail|
         EventMailer.comment(event, comment, mail).deliver_now
