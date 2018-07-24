@@ -60,11 +60,3 @@
 .ekko-lightbox .modal-footer {
   text-align: left;
 }
-
-#lightbox-region #lightbox-inner.cursor-left img {
-  cursor: url("assets/images/left_arrow.png") 9 9, pointer !important;
-}
-
-#lightbox-region #lightbox-inner.cursor-right img {
-  cursor: url("assets/images/left_arrow.png") 9 9, pointer !important;
-}
