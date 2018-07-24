@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_avatar(user)
-     if user.avatar.file.present?
+     if File.exist?(user.avatar.url)
        user.avatar.url
      else
        asset_path('burger.png')
