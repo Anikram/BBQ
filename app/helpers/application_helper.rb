@@ -1,6 +1,6 @@
 module ApplicationHelper
   def user_avatar(user)
-     if File.exist?(user.avatar.url)
+     if user.avatar.file.present?
        user.avatar.url
      else
        asset_path('burger.png')
@@ -13,7 +13,7 @@ module ApplicationHelper
      else
        asset_path('burger.png')
      end
-     end
+  end
 
   def event_photo(event)
     photos = event.photos.persisted
