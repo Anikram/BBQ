@@ -30,12 +30,12 @@ class EventMailer < ApplicationMailer
     @photo = photo
     @email = email
 
-    if Rails.env.development?
-      attachments['image.jpg'] = File.read("public/#{@photo.photo.url}")
-    else
-      sleep 10
-      attachments['image.jpg'] = File.read(@photo.photo.url)
-    end
+    # if Rails.env.development?
+    #   attachments['image.jpg'] = File.read("public/#{@photo.photo.url}")
+    # else
+    #   sleep 10
+    #   attachments['image.jpg'] = File.read(@photo.photo.url)
+    # end
 
     mail to: @email, subject: "#{t('event_mailer.photo.title')} @ #{@event.title}"
   end
