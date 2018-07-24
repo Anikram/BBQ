@@ -49,3 +49,11 @@
     width: 100%;
     height: 400px;
 }
+
+.event-photo {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+    padding-left: 1px;
+    padding-right: 1px;
+}
