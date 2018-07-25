@@ -1,17 +1,17 @@
 <h2>Войти</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="row">
-    <div class="input-group col-xs-4">
+  <div class="row col-lg-9">
+    <div class="input-group col-xs-6">
       <%= render partial: 'partials/form_errors', locals: {model: resource}, class: "input-group col-xs-4" %>
     </div>
 
-    <div class="input-group col-xs-4">
+    <div class="input-group col-xs-6">
       <div class="form-horizontal">
         <div class="controls">
           <%= f.label :email %><br/>
         </div>
-        <div class="input-group col-sx-4">
+        <div class="input-group col-sx-6">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
           <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
         </div>
@@ -20,7 +20,7 @@
           <div class="controls">
             <%= f.label :password %><br/>
           </div>
-          <div class="input-group col-sx-4">
+          <div class="input-group col-sx-6">
             <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
             <span class="input-group-addon"><i class="glyphicon glyphicon-asterisk"></i></span>
           </div>
