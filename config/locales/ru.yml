@@ -57,7 +57,7 @@ ru:
       errors:
         general: 'Ошибка отправки фото'
   app:
-    name: "'My Meet'"
+    name: "My Meet"
     company: 'Anikram'
     form:
       attributes:
