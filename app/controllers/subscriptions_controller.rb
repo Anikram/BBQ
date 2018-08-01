@@ -12,7 +12,7 @@ class SubscriptionsController < ApplicationController
 
     if current_user && @event.user.email == current_user.email
       redirect_to @event, alert: t('controllers.subscription.errors.self_subscription')
-      @new_subscription.delete
+      #@new_subscription.delete
     else
       begin
         @new_subscription.save!
