@@ -2,8 +2,6 @@ class Subscription < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 
-  before_create :user_is_owner? if -> {user.present?}
-
   validates :event, presence: true
   validates :user_name, presence: true, unless: 'user.present?'
   validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: 'user.present?'
@@ -13,6 +11,7 @@ class Subscription < ActiveRecord::Base
   validates :user_email, uniqueness: { scope: :event }
 
   validate :email_uniqueness_for_anonymus, unless: -> {user.present?}
+  validate :owner_can_not_be_subscriber, if: -> {user.present?}
 
   def user_name
     if user.present?
@@ -30,8 +29,8 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  def user_is_owner?
-     errors.add(:user_email, :invalid) if self.event.user.email == user_email
+  def owner_can_not_be_subscriber
+     errors.add(:user_email, :invalid) if self.event.user_id == self.user.id
   end
 
   def email_uniqueness_for_anonymus
