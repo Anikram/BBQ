@@ -1,7 +1,7 @@
 # :nodoc:
 module ApplicationHelper
   def user_avatar(user)
-    if user.avatar.file.present?
+    if user.avatar.file.present? && user.present?
      user.avatar.url
     else
      asset_path('burger.png')

@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
   has_many :comments, dependent: :nullify
   has_many :subscriptions, dependent: :nullify
-  has_many :subscribers, through: :subscriptions, source: :user
+  has_many :subscribers, through: :subscriptions, source: :user, dependent: :nullify
   has_many :photos, dependent: :nullify
 
   validates :user, presence: true
