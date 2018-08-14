@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, 'mymeet'
-set :repo_url, 'git@github.com:Anikram/tubilinkz-cap.git'
+set :repo_url, 'git@github.com:Anikram/BBQ.git'
 
 set :deploy_to, '/home/deploy/mymeet'
 
