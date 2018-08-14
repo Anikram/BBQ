@@ -1,7 +1,8 @@
+# :nodoc:
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
-  before_action :set_event, only: [:show]#, :edit, :update, :destroy]
+  before_action :set_event, only: [:show]
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   before_action :password_guard!, only: [:show]
@@ -23,8 +24,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   def create
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_event
       @event = Event.find(params[:id])
     end
@@ -62,7 +62,6 @@ class EventsController < ApplicationController
       @event = current_user.events.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def event_params
       params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
     end

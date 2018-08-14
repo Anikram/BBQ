@@ -1,3 +1,4 @@
+# :nodoc:
 class CommentsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :set_comment, only: [:destroy]
@@ -30,28 +31,24 @@ class CommentsController < ApplicationController
   end
 
   private
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = @event.comments.find(params[:id])
-    end
+  def set_comment
+    @comment = @event.comments.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def comment_params
-      params.require(:comment).permit(:body, :user_name)
-    end
+  def comment_params
+    params.require(:comment).permit(:body, :user_name)
+  end
 
-    def notify_subscribers(event, comment)
-      all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
-      #Уведомить подпищиков о новом комментарии.
-      all_emails = (all_emails - [comment.user.email]).uniq if current_user == comment.user
-      #Не уведомлять автора комментария, если он залогинен.
-
-      all_emails.each do |mail|
-        EventMailer.comment(event, comment, mail).deliver_now
-      end
+  def notify_subscribers(event, comment)
+    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
+    all_emails = (all_emails - [comment.user.email]).uniq if current_user == comment.user
+    # do not notify author
+    all_emails.each do |mail|
+      EventMailer.comment(event, comment, mail).deliver_now
     end
+  end
 end
