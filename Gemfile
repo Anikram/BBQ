@@ -38,7 +38,12 @@ group :production do
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "capistrano", "~> 3.11", require: false
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano-passenger', '~> 0.2'
+  gem 'capistrano-rbenv', '~> 2.1'
+  gem 'capistrano-bundler', '~> 1.2'
+
   gem 'byebug'
   gem 'sqlite3'
   gem 'web-console'
