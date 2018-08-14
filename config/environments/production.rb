@@ -76,7 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
+=begin
   config.action_mailer.default_url_options = {host: 'thersty-beast.herokuapp.com'}
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
@@ -90,4 +90,5 @@ Rails.application.configure do
     :domain             => 'heroku.com',
     :enable_starttls_auto => true
   }
+=end
 end
