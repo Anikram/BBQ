@@ -10,6 +10,10 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 require 'fog/aws'
+require 'net/http'
+require 'openssl'
+require 'resolv-replace'
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
