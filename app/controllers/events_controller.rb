@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   before_action :password_guard!, only: [:show]
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.where('user_id IS NOT NULL')
   end
 
   # GET /events/1
