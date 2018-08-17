@@ -1,6 +1,6 @@
 <span class="subscription">
-  <% if subscription.user.present? %>
-    <%= render partial: 'users/user', object: subscription.user %>
+  <% if subscription.user.present? || !subscription.user.nil? %>
+    <%= render partial: 'users/user', object: subscription.user  %>
   <% else %>
     <em><%= subscription.user_name %></em>
   <% end %>
