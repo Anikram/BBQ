@@ -3,6 +3,10 @@ ruby '2.4.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
 gem 'rails', '4.2.10'
 
 gem 'uglifier', '>= 1.3.0'

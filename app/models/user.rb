@@ -1,9 +1,8 @@
 # :nodoc:
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # Include default devise modules. Others available are::omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
   has_many :events, dependent: :nullify
   has_many :comments, dependent: :nullify
@@ -17,6 +16,11 @@ class User < ActiveRecord::Base
   after_commit :link_subscriptions, on: :create
 
   mount_uploader :avatar, AvatarUploader
+
+
+  def self.find_for_facebook_auth(token)
+    byebug
+  end
 
   private
 
