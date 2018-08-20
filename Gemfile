@@ -19,6 +19,8 @@ gem 'devise'
 
 gem 'devise-i18n'
 
+gem 'devise-russian', '~> 2.0', '>= 2.0.1.1'
+
 gem 'russian'
 
 gem 'rails-i18n'
@@ -39,6 +41,10 @@ gem 'dotenv-rails'
 
 group :production do
   gem 'pg', '~> 0.20'
+end
+
+group :test do
+  gem 'factory_bot_rails'
 end
 
 group :development, :test do

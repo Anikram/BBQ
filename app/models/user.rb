@@ -19,7 +19,20 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_facebook_auth(token)
-    byebug
+    email = token.info.email
+    user = User.where(email: email).first
+
+    return user if user.present?
+
+    provider = token.provider
+    id = token.extra.raw_info.id
+    url = "https://facebook.com/#{id}"
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+
   end
 
   private
