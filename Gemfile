@@ -56,7 +56,7 @@ group :development, :test do
   gem 'capistrano-rails-console', require: false
 
   gem 'byebug'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3', '< 1.4'
   gem 'web-console'
   gem 'rspec-rails', '~>3.4'
   gem 'factory_bot_rails'
